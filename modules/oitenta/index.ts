@@ -1,1 +1,0 @@
-export const noventa = 90;
