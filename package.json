@@ -1,0 +1,24 @@
+{
+  "name": "lemon",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/chalk": "^0.4.31",
+    "@types/module-alias": "^2.0.4",
+    "@types/prompts": "^2.4.9"
+  },
+  "_moduleAliases": {
+    "modules": "./modules"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "fs": "^0.0.1-security",
+    "gradient-string": "^3.0.0",
+    "module-alias": "^2.2.3",
+    "prompts": "^2.4.2"
+  }
+}
