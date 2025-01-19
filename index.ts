@@ -29,13 +29,13 @@ if (fs.existsSync("./lemon.json")) {
 
 
 
-function setupAliases() {
-    const modulesPath = "./modules";
-    const modules = fs.readdirSync(modulesPath);
-    modules.forEach(module => {
-        moduleAlias.addAlias(module, `${modulesPath}/${module}`);
-    });
-}
+// function setupAliases() {
+//     const modulesPath = "./modules";
+//     const modules = fs.readdirSync(modulesPath);
+//     modules.forEach(module => {
+//         moduleAlias.addAlias(module, `${modulesPath}/${module}`);
+//     });
+// }
 
 
 const args = process.argv.slice(2);
@@ -142,7 +142,7 @@ if (args[0] === "add") {
     
 }
 if (args[0] === "exec"){
-    setupAliases();
+    // setupAliases();
     if (!args[1]){
         try {
             require(prjct.entrypoint);
