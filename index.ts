@@ -3,7 +3,7 @@ const YELLOW = gradient(["yellow", "yellow"]);
 const gitgrad = gradient(["red", "green", "blue", "yellow",]);
 const redonly = gradient(["red", "#e0584f"]);
 const redblue = gradient(["red", "blue"]);
-
+import path from 'path';
 
 import fs from "fs";
 import moduleAlias from "module-alias";
@@ -16,14 +16,15 @@ import chalk from "chalk";
 
 let prjct: any;
 
-if (fs.existsSync("./lemon.json")) {
-    try {
-        prjct = require('./lemon.json');
-    } catch (error) {
-        console.log(redonly('Error loading project file!'));
-        console.error("The file lemon.json does not exist! Please run 'lemon init' to create a new project.");
+const existProject = fs.existsSync("./lemon.json");
+switch (existProject) {
+    case true:
+        prjct = JSON.parse(fs.readFileSync("./lemon.json", "utf-8"));
+        break;
+    case false:
+        console.log(redonly('No project found!'));
         process.exit(1);
-    }
+        break;
 }
 // Cria um gradiente de azul para vermelho
 
@@ -142,26 +143,7 @@ if (args[0] === "add") {
     
 }
 if (args[0] === "exec"){
-    // setupAliases();
-    if (!args[1]){
-        try {
-            require(prjct.entrypoint);
-        } catch (error) {
-            console.log(redonly('Oops! It seems that the file you are trying to execute does not exist!'));
-        const showerror = await prompts({
-            type: 'confirm',
-            name: 'showerror',
-            message: 'Do you want to see the error?',
-            initial: false
-        })
-        if (showerror.showerror == true) {
-            console.error(error);
-            let abu = JSON.parse(JSON.stringify(error, Object.getOwnPropertyNames(error))).message;
-            const google = "https://google.com/search?q=" + JSON.stringify(abu).replace(/ /g, '%20');
-            console.log(chalk.red('Error executing file! Check the following link for some information: ' + gradienteAzulVermelho(google)));
-        }
-        }
-    } else {
+    
         try {
             require(args[1]);
         } catch (error) {
@@ -181,4 +163,4 @@ if (args[0] === "exec"){
         }
     };
     
-}
+

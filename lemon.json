@@ -1,1 +1,1 @@
-{"name":"lemon-project","author":"John Doe","version":"1.0.0","modules":[],"entrypoint":"teste.ts","gitURL":"https://git.acme.net/lemon-project.git"}
+{"name":"lemon-project","author":"John Doe","version":"1.0.0","modules":["test"],"entrypoint":"index.ts","gitURL":"https://git.acme.net/lemon-project.git"}

@@ -1,3 +1,3 @@
-import { noventa } from "modules/oitenta";
 
-console.log(noventa + 1);
+
+console.log(90 + 1);
