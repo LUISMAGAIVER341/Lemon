@@ -23,7 +23,7 @@ switch (existProject) {
         break;
     case false:
         console.log(redonly('No project found!'));
-        process.exit(1);
+        $`lemon init`
         break;
 }
 // Cria um gradiente de azul para vermelho
